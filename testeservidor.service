@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve testeservidor
+After=network.target
+
+[Service]
+User=luiz
+Group=www-data
+WorkingDirectory=/home/luiz/testeservidor
+Environment="PATH=/home/luiz/testeservidor/venv/bin"
+ExecStart=/home/luiz/testeservidor/venv/bin/uwsgi --ini wsgi.ini
+
+[Install]
+WantedBy=multi-user.target
